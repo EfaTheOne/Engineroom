@@ -1,0 +1,739 @@
+:root {
+    --bg-dark: #0a0a0a;
+    --bg-darker: #050505;
+    --primary: #FF4D00;
+    /* Industrial Orange */
+    --primary-hover: #ff6a00;
+    --accent: #00f2ff;
+    /* Cyan from previous design, kept as accent */
+    --text-main: #ffffff;
+    --text-muted: #a0a0a0;
+    --glass-bg: rgba(255, 255, 255, 0.05);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --font-heading: 'Oswald', sans-serif;
+    --font-body: 'Inter', sans-serif;
+    --spacing-container: 1200px;
+}
+
+/* Reset & Base */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+    font-family: var(--font-body);
+    line-height: 1.6;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: 0.3s;
+}
+
+ul {
+    list-style: none;
+}
+
+/* Utilities */
+.container {
+    max-width: var(--spacing-container);
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* Typography */
+h1,
+h2,
+h3 {
+    font-family: var(--font-heading);
+    text-transform: uppercase;
+    line-height: 1.1;
+}
+
+h1 {
+    font-size: 6rem;
+    /* Bigger, bolder */
+    letter-spacing: -3px;
+    margin-bottom: 1.5rem;
+    line-height: 1;
+}
+
+h2 {
+    font-size: 3.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--text-main);
+    letter-spacing: -1px;
+}
+
+h3 {
+    font-size: 1.75rem;
+    margin-bottom: 1rem;
+    color: var(--text-main);
+    letter-spacing: 0.5px;
+}
+
+p {
+    color: var(--text-muted);
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+    /* Slightly larger body text */
+    line-height: 1.8;
+    /* More breathing room */
+}
+
+.accent {
+    color: var(--primary);
+}
+
+.stroke-text {
+    color: transparent;
+    -webkit-text-stroke: 2px var(--text-main);
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    padding: 0.8rem 2rem;
+    font-family: var(--font-heading);
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 1px;
+    border: 2px solid transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background-color: var(--primary);
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: transparent;
+    border-color: var(--primary);
+    color: var(--primary);
+}
+
+.btn-outline {
+    border-color: var(--text-main);
+    color: var(--text-main);
+}
+
+.btn-outline:hover {
+    background-color: var(--text-main);
+    color: var(--bg-dark);
+}
+
+.btn-large {
+    padding: 1.2rem 3rem;
+    font-size: 1.2rem;
+}
+
+.btn-block {
+    display: block;
+    width: 100%;
+}
+
+/* Header */
+#main-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 1.5rem 0;
+    background: rgba(10, 10, 10, 0.8);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    border-bottom: 1px solid var(--glass-border);
+}
+
+#main-header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-family: var(--font-heading);
+    font-size: 1.75rem;
+    /* Larger brand presence */
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+#main-header nav {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+#main-header nav a:not(.btn) {
+    font-weight: 500;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+}
+
+#main-header nav a:not(.btn):hover {
+    color: var(--primary);
+}
+
+/* Hero Section */
+#hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    background: radial-gradient(circle at 50% 50%, #1a1a1a, #0a0a0a);
+    text-align: center;
+    padding-top: 80px;
+}
+
+.hero-content {
+    z-index: 2;
+    position: relative;
+    max-width: 800px;
+    padding: 0 1rem;
+}
+
+.subtitle {
+    font-size: 1.25rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 3rem;
+}
+
+.hero-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+/* Sections */
+section {
+    padding: 10rem 0;
+    /* Increased from 8rem for more premium white/negative space */
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 5rem;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.section-header p {
+    font-size: 1.2rem;
+}
+
+/* Grid Layouts */
+.grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+/* Cards */
+.card,
+.feature-card {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    padding: 3.5rem;
+    /* Increased from 2.5rem */
+    transition: transform 0.3s ease;
+}
+
+.card:hover,
+.feature-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--primary);
+}
+
+.feature-card .icon {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Application Form */
+.application-wrapper {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.glass-form {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    padding: 3rem;
+    position: relative;
+}
+
+fieldset {
+    border: none;
+    margin: 0;
+    padding: 0;
+    display: flow-root;
+    /* Fix for fieldset spacing */
+}
+
+/* We will handle visibility of fieldsets via JS */
+fieldset:not(.active) {
+    display: none;
+}
+
+legend {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    color: var(--primary);
+    margin-bottom: 2rem;
+    display: block;
+    width: 100%;
+    border-bottom: 1px solid var(--glass-border);
+    padding-bottom: 1rem;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group.full-width {
+    grid-column: span 2;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text-muted);
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid var(--glass-border);
+    padding: 1rem;
+    color: white;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    transition: 0.3s;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    border-color: var(--primary);
+    background: rgba(0, 0, 0, 0.5);
+}
+
+/* Stepper Controls (JS will inject these if needed, or we style form-actions) */
+.form-actions {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Footer */
+footer {
+    padding: 4rem 0;
+    background: var(--bg-darker);
+    border-top: 1px solid var(--glass-border);
+    text-align: center;
+}
+
+.address {
+    font-size: 0.9rem;
+    opacity: 0.6;
+    margin-top: 0.5rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 3rem;
+    }
+
+    .grid-2 {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-actions {
+        flex-direction: column;
+    }
+
+    .glass-form {
+        padding: 1.5rem;
+    }
+}
+
+/* Partners Section */
+.bg-darker {
+    background-color: var(--bg-darker);
+}
+
+.partners-grid {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    flex-wrap: wrap;
+    opacity: 0.7;
+}
+
+.partner-logo {
+    border: 2px solid var(--glass-border);
+    padding: 1.5rem 2rem;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    text-align: center;
+    letter-spacing: 2px;
+    color: var(--text-muted);
+    transition: 0.3s;
+}
+
+.partner-logo:hover {
+    border-color: var(--primary);
+    color: var(--text-main);
+    transform: scale(1.05);
+}
+
+/* Mentors Section */
+.grid-3 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.mentor-card {
+    text-align: center;
+    padding: 2rem;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+}
+
+.mentor-img {
+    width: 120px;
+    height: 120px;
+    background: linear-gradient(45deg, var(--primary), #333);
+    border-radius: 50%;
+    margin: 0 auto 1.5rem;
+    border: 3px solid var(--bg-dark);
+    box-shadow: 0 0 20px rgba(255, 77, 0, 0.2);
+}
+
+.mentor-card .role {
+    color: var(--primary);
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+}
+
+/* FAQ Section */
+.faq-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 2rem;
+}
+
+.faq-item {
+    padding: 1.5rem;
+    border-left: 2px solid var(--glass-border);
+    transition: 0.3s;
+}
+
+.faq-item:hover {
+    border-left-color: var(--primary);
+    background: linear-gradient(90deg, var(--glass-bg), transparent);
+}
+
+.faq-item h3 {
+    font-size: 1.25rem;
+    font-family: var(--font-body);
+    font-weight: 700;
+    color: white;
+    margin-bottom: 0.5rem;
+}
+
+/* --- Advanced Dashboard --- */
+
+/* Analytics Bar */
+.stats-bar {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.stat-card {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    padding: 1.5rem;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+}
+
+.stat-card .label {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 0.5rem;
+}
+
+.stat-card .value {
+    font-size: 2rem;
+    font-weight: 700;
+    font-family: var(--font-heading);
+    color: white;
+}
+
+.stat-card .trend {
+    font-size: 0.8rem;
+    color: #00e676;
+    /* Green */
+    margin-top: 0.5rem;
+}
+
+/* Kanban Board */
+.kanban-board {
+    display: flex;
+    gap: 1.5rem;
+    overflow-x: auto;
+    padding-bottom: 1rem;
+    height: calc(100vh - 350px);
+    min-height: 500px;
+}
+
+.kanban-column {
+    flex: 0 0 300px;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--glass-border);
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+}
+
+.column-header {
+    padding: 1rem;
+    border-bottom: 1px solid var(--glass-border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.column-header h3 {
+    font-size: 1rem;
+    margin: 0;
+    color: var(--text-muted);
+}
+
+.column-count {
+    background: var(--glass-border);
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-size: 0.8rem;
+}
+
+.column-body {
+    padding: 1rem;
+    flex: 1;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+/* Kanban Cards */
+.kanban-card {
+    background: var(--card-bg, #1a1a1a);
+    border: 1px solid var(--glass-border);
+    padding: 1rem;
+    border-radius: 4px;
+    cursor: grab;
+    transition: transform 0.2s, box-shadow 0.2s;
+    position: relative;
+    border-left: 3px solid var(--primary);
+}
+
+.kanban-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    border-color: var(--primary);
+}
+
+.kanban-card h4 {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    color: white;
+}
+
+.kanban-card .meta {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    display: flex;
+    justify-content: space-between;
+}
+
+.kanban-card .tag {
+    font-size: 0.7rem;
+    padding: 2px 6px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+}
+
+/* Modal */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(5px);
+    z-index: 2000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s;
+}
+
+.modal-overlay.open {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.modal-content {
+    background: #151515;
+    width: 90%;
+    max-width: 800px;
+    max-height: 90vh;
+    border: 1px solid var(--glass-border);
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    transform: scale(0.95);
+    transition: transform 0.3s;
+}
+
+.modal-overlay.open .modal-content {
+    transform: scale(1);
+}
+
+.modal-header {
+    padding: 1.5rem;
+    border-bottom: 1px solid var(--glass-border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-body {
+    padding: 2rem;
+    overflow-y: auto;
+}
+
+.modal-section {
+    margin-bottom: 2rem;
+}
+
+.modal-footer {
+    padding: 1.5rem;
+    border-top: 1px solid var(--glass-border);
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.close-modal {
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.note-input {
+    width: 100%;
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid var(--glass-border);
+    padding: 10px;
+    color: white;
+    min-height: 80px;
+    margin-top: 10px;
+}
+
+/* --- Toast Notifications --- */
+.toast {
+    background: rgba(20, 20, 20, 0.95);
+    border: 1px solid var(--glass-border);
+    border-left: 4px solid var(--primary);
+    padding: 1rem 1.5rem;
+    margin-top: 10px;
+    border-radius: 4px;
+    color: white;
+    font-family: var(--font-body);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    animation: slideIn 0.3s ease-out forwards;
+    min-width: 300px;
+}
+
+.toast.success {
+    border-left-color: #00e676;
+}
+
+.toast.error {
+    border-left-color: #ff1744;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideOut {
+    to {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+}
